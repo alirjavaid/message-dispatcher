@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<bean id="jms" class="org.apache.activemq.camel.component.ActiveMQComponent">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+		<property name="userName" value="admin"/>
+        <property name="password" value="admin"/>
+	</bean>
+	
+	<bean id="request1Processor" class="com.example.messagedispatcher.processors.Request1Processor"/>
+	<bean id="request2Processor" class="com.example.messagedispatcher.processors.Request2Processor"/>
+	<bean id="defaultProcessor" class="com.example.messagedispatcher.processors.DefaultProcessor"/>
+	<bean id="preProcessor" class="com.example.messagedispatcher.processors.PreProcessor"/>
+	<bean id="postProcessor" class="com.example.messagedispatcher.processors.PostProcessor"/>
+
+</beans>
